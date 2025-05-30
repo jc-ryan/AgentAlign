@@ -1,7 +1,7 @@
-### Introduction
+## Introduction
 This is an experimental codebase for our paper [AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic Large Language Models](https://arxiv.org/abs/2505.23020). It contains the key components for synthesizing our AgentAlign dataset, including prompt templates for different stages, taxonomy, simulated environments, and associated code.
 
-### Motivation
+## Motivation
 
 <img src=".\figs\motivation.png" style="zoom:63%;" />
 
@@ -11,13 +11,13 @@ To bridge this gap, we developed a novel framework that leverages abstract behav
 
 
 
-### Method
+## Method
 
 <img src=".\figs\method.png" style="zoom:63%;" />
 
 Our method consists of three main components: Abstract Behavior Chain Construction, Instruction Synthesis, and Response Generation. The corresponding files for each functional module are as follows:
 
-#### Abstract Behavior Chain Construction
+### Abstract Behavior Chain Construction
 
 - **42 abstract capabilities**: `instruction/tools/tool_capabilities.json`
 - **harmful taxonomy**: `instruction/harmful_categoris.json`
@@ -27,7 +27,7 @@ Our method consists of three main components: Abstract Behavior Chain Constructi
 
 
 
-#### Instruction Systhesis
+### Instruction Systhesis
 
 - **prompt template**: `instruction/seed_questions/{benign|borderline|harmful}_instruction_prompt.txt`
 - **API interface**:  `instruction/{gpt|gemini|deepseek|mistral|grok}_api.py`
@@ -35,7 +35,7 @@ Our method consists of three main components: Abstract Behavior Chain Constructi
 
 
 
-#### Response Generation
+### Response Generation
 
 - **Environment & Tools**: Located in `multi_step_trajectory_generation/synthetic_tools`, where each tool category contains a Python module and a corresponding tool schema
 - **Benign Multi-step Trajectory Collection**: `response_generation_async.py` - Asynchronously synthesizes multi-step trajectories for multiple requests
@@ -46,7 +46,7 @@ Most code files are standalone and can be executed independently. The final cura
 
 
 
-### Fine-tuning
+## Fine-tuning
 
 We used different codebases to fine-tune the corresponding models. For models with official codebases, we used their respective repositories; otherwise, we utilized LlamaFactory. Training procedures can be referenced from the instructions in the respective repositories:
 
@@ -58,7 +58,7 @@ Training details for each model are provided in **Appendix C** of the paper.
 
 
 
-### Evaluation
+## Evaluation
 
 We used [AgentHarm's test suite](https://huggingface.co/datasets/ai-safety-institute/AgentHarm) as our evaluation benchmark. Specific evaluation metrics, baselines, and experimental settings are detailed in **Section 4.1** of the paper. We also conducted evaluations on ToolSword's Malicious Queries subset. Test settings and results are presented in **Appendix F** of the paper.
 
@@ -70,13 +70,13 @@ We provide evaluation logs in the `logs` directory showing model performance on 
 
 
 
-### Note
+## Note
 
 To maintain a clean codebase, we have uploaded only the core logic components and omitted certain scripts such as quality control processes (which involve iterative procedures). If you need assistance with these aspects or have any questions, please feel free to contact us.
 
 
 
-### Citation
+## Citation
 
 If you find our code or paper helpful or inspiring, please consider citing our work.
 
