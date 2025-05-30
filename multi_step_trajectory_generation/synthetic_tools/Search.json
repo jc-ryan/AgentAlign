@@ -1,0 +1,271 @@
+{
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "search_google",
+                "description": "Perform a search using Google search engine",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Search query string"
+                        },
+                        "num_results": {
+                            "type": "integer",
+                            "description": "Number of results to return (1-50)",
+                            "minimum": 1,
+                            "maximum": 50,
+                            "default": 10
+                        },
+                        "search_type": {
+                            "type": "string",
+                            "description": "Type of search to perform",
+                            "enum": [
+                                "web",
+                                "images",
+                                "news",
+                                "videos"
+                            ],
+                            "default": "web"
+                        },
+                        "language": {
+                            "type": "string",
+                            "description": "Language code for search results",
+                            "default": "en"
+                        },
+                        "safe_search": {
+                            "type": "boolean",
+                            "description": "Whether to enable safe search",
+                            "default": true
+                        },
+                        "time_period": {
+                            "type": "string",
+                            "description": "Time period for results",
+                            "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year"
+                            ],
+                            "default": null
+                        },
+                        "region": {
+                            "type": "string",
+                            "description": "Region code for search results",
+                            "default": "US"
+                        }
+                    },
+                    "required": [
+                        "query"
+                    ]
+                }
+            },
+            "category": "Search"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "search_bing",
+                "description": "Perform a search using Bing search engine",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Search query string"
+                        },
+                        "count": {
+                            "type": "integer",
+                            "description": "Number of results to return (1-50)",
+                            "minimum": 1,
+                            "maximum": 50,
+                            "default": 10
+                        },
+                        "search_type": {
+                            "type": "string",
+                            "description": "Type of search to perform",
+                            "enum": [
+                                "web",
+                                "images",
+                                "news",
+                                "videos"
+                            ],
+                            "default": "web"
+                        },
+                        "market": {
+                            "type": "string",
+                            "description": "Market code for results (e.g., en-US)",
+                            "default": "en-US"
+                        },
+                        "safe_search": {
+                            "type": "string",
+                            "description": "Safe search setting",
+                            "enum": [
+                                "off",
+                                "moderate",
+                                "strict"
+                            ],
+                            "default": "moderate"
+                        },
+                        "freshness": {
+                            "type": "string",
+                            "description": "Result freshness filter",
+                            "enum": [
+                                "Day",
+                                "Week",
+                                "Month"
+                            ],
+                            "default": null
+                        },
+                        "response_filter": {
+                            "type": "string",
+                            "description": "Filter for specific types of results",
+                            "enum": [
+                                "Computation",
+                                "Timeline",
+                                "Places"
+                            ],
+                            "default": null
+                        }
+                    },
+                    "required": [
+                        "query"
+                    ]
+                }
+            },
+            "category": "Search"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "search_brave",
+                "description": "Perform a search using Brave search engine with privacy focus",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Search query string"
+                        },
+                        "count": {
+                            "type": "integer",
+                            "description": "Number of results to return (1-50)",
+                            "minimum": 1,
+                            "maximum": 50,
+                            "default": 10
+                        },
+                        "search_type": {
+                            "type": "string",
+                            "description": "Type of search to perform",
+                            "enum": [
+                                "web",
+                                "images",
+                                "news",
+                                "videos"
+                            ],
+                            "default": "web"
+                        },
+                        "country": {
+                            "type": "string",
+                            "description": "Country code for results",
+                            "default": "us"
+                        },
+                        "search_filter": {
+                            "type": "string",
+                            "description": "Content filter setting",
+                            "enum": [
+                                "moderate",
+                                "strict"
+                            ],
+                            "default": null
+                        },
+                        "ui_language": {
+                            "type": "string",
+                            "description": "Interface language",
+                            "default": "en-US"
+                        },
+                        "no_tracking": {
+                            "type": "boolean",
+                            "description": "Whether to disable tracking",
+                            "default": true
+                        }
+                    },
+                    "required": [
+                        "query"
+                    ]
+                }
+            },
+            "category": "Search"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "search_baidu",
+                "description": "Perform a search using Baidu search engine",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Search query string"
+                        },
+                        "rn": {
+                            "type": "integer",
+                            "description": "Number of results to return (1-50)",
+                            "minimum": 1,
+                            "maximum": 50,
+                            "default": 10
+                        },
+                        "search_type": {
+                            "type": "string",
+                            "description": "Type of search to perform",
+                            "enum": [
+                                "web",
+                                "images",
+                                "news",
+                                "videos"
+                            ],
+                            "default": "web"
+                        },
+                        "region": {
+                            "type": "string",
+                            "description": "Region code for results",
+                            "default": "cn"
+                        },
+                        "time_range": {
+                            "type": "string",
+                            "description": "Time range filter",
+                            "enum": [
+                                "day",
+                                "week",
+                                "month",
+                                "year"
+                            ],
+                            "default": null
+                        },
+                        "safe": {
+                            "type": "boolean",
+                            "description": "Whether to enable safe search",
+                            "default": true
+                        },
+                        "lang_type": {
+                            "type": "string",
+                            "description": "Language type",
+                            "enum": [
+                                "zh",
+                                "en"
+                            ],
+                            "default": "zh"
+                        }
+                    },
+                    "required": [
+                        "query"
+                    ]
+                }
+            },
+            "category": "Search"
+        }
+    ]
+}

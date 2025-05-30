@@ -1,0 +1,174 @@
+{
+    "Artificial_Intelligence_Machine_Learning.create_image": [
+        "midjourney_create_image",
+        "stable_diffusion_generate"
+    ],
+    "Artificial_Intelligence_Machine_Learning.create_video": [
+        "runway_generate_video"
+    ],
+    "Artificial_Intelligence_Machine_Learning.generate_voice": [
+        "elevenlabs_text_to_speech"
+    ],
+    "Artificial_Intelligence_Machine_Learning.edit_image": [
+        "dalle_edit_image",
+        "stability_edit_image"
+    ],
+    "Communication.send_email": [
+        "send_gmail",
+        "send_outlook",
+        "send_yahoo_mail",
+        "send_163_mail"
+    ],
+    "Communication.send_sms": [
+        "send_twilio_sms",
+        "send_messagebird_sms"
+    ],
+    "Communication.send_instant_message": [
+        "send_telegram_message"
+    ],
+    "Cryptography.swap_tokens": [
+        "execute_dex_swap"
+    ],
+    "Cryptography.create_wallet": [
+        "create_wallet"
+    ],
+    "Cryptography.deploy_contract": [
+        "deploy_smart_contract"
+    ],
+    "Cryptography.transfer_cross_chain": [
+        "execute_cross_chain_transfer"
+    ],
+    "Cryptography.query_data": [
+        "query_blockchain_data"
+    ],
+    "Cryptography.mix_tokens": [
+        "mix_cryptocurrency"
+    ],
+    "Cryptography.send_bitcoin": [
+        "bitcoin_transaction"
+    ],
+    "Cryptography.create_bitcoin_payment": [
+        "create_bitcoin_payment"
+    ],
+    "Cryptography.interact_contract": [
+        "ethereum_contract_interaction"
+    ],
+    "Cryptography.swap_bnb": [
+        "binance_smart_chain_swap"
+    ],
+    "Cryptography.interact_solana": [
+        "solana_program_call"
+    ],
+    "Cryptography.send_monero": [
+        "monero_private_transfer"
+    ],
+    "eCommerce.create_order": [
+        "place_order_amazon",
+        "place_order_temu",
+        "place_order_ebay",
+        "place_order_taobao"
+    ],
+    "eCommerce.search_products": [
+        "search_products_amazon",
+        "search_products_temu",
+        "search_products_ebay",
+        "search_products_taobao"
+    ],
+    "LocalServices.create_order": [
+        "place_order_meituan",
+        "place_order_doordash",
+        "place_order_ubereats",
+        "place_order_foodpanda"
+    ],
+    "LocalServices.search_merchant": [
+        "search_merchant_meituan",
+        "search_merchant_doordash",
+        "search_merchant_ubereats",
+        "search_merchant_foodpanda"
+    ],
+    "Payments.create_payment": [
+        "create_alipay_payment",
+        "create_apple_pay_payment",
+        "create_paypal_payment",
+        "create_wechat_pay_payment",
+        "stripe_create_payment"
+    ],
+    "Payments.query_payment": [
+        "query_alipay_payment",
+        "query_apple_pay_payment",
+        "query_paypal_payment",
+        "query_wechat_pay_payment"
+    ],
+    "Search.web_search": [
+        "search_google",
+        "search_bing",
+        "search_brave",
+        "search_baidu"
+    ],
+    "Social.create_post": [
+        "post_tweet",
+        "post_instagram",
+        "post_weibo"
+    ],
+    "Social.create_comment": [
+        "post_tweet_comment",
+        "post_instagram_comment",
+        "post_weibo_comment",
+        "post_tiktok_comment",
+        "post_youtube_comment",
+        "post_bilibili_comment"
+    ],
+    "Social.create_video": [
+        "post_tiktok"
+    ],
+    "Social.upload_video": [
+        "post_youtube_video",
+        "post_bilibili_video"
+    ],
+    "Social.get_profile": [
+        "get_twitter_profile",
+        "get_instagram_profile",
+        "get_tiktok_profile",
+        "get_bilibili_profile"
+    ],
+    "Social.search_content": [
+        "search_twitter_content",
+        "search_instagram_content",
+        "search_tiktok_content",
+        "search_youtube_content",
+        "search_bilibili_content"
+    ],
+    "System_Tools.execute_command": [
+        "execute_command"
+    ],
+    "System_Tools.manage_files": [
+        "file_operation"
+    ],
+    "System_Tools.get_info": [
+        "system_info"
+    ],
+    "System_Tools.manage_process": [
+        "process_management"
+    ],
+    "System_Tools.manage_git": [
+        "git_operation"
+    ],
+    "System_Tools.manage_docker": [
+        "docker_operation"
+    ],
+    "System_Tools.manage_packages": [
+        "package_operation"
+    ],
+    "System_Tools.make_request": [
+        "http_request"
+    ],
+    "System_Tools.diagnose_network": [
+        "network_diagnostic"
+    ],
+    "System_Tools.manage_ssh": [
+        "ssh_operation"
+    ],
+    "System_Tools.get_network_info": [
+        "network_info"
+    ]
+}

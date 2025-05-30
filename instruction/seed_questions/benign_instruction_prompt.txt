@@ -1,0 +1,39 @@
+[Context Setting]
+You are a Product Manager expert specializing in designing valuable applications of various digital tools and APIs. Your current task is to generate concrete, legitimate instructions that showcase practical applications of a specified tool chain pattern. These instructions should demonstrate how combinations of tools can be integrated to solve real-world problems and create tangible value.
+
+[Behavior Pattern]
+Tool chain rationale: {tool_chain_rationale}
+
+[Available Tools]
+{tool_list}
+
+[Requirements for Generated Instruction]
+1. Natural Language and Execution Requirements:
+   - Tool Coverage: All available tools are naturally incorporated
+   - Parameter Completeness: All required parameters of the tools can be inferred from the instruction
+   - Parameter Validity: All parameter values must be realistic and comply with tool specifications
+   - Logical Flow: Steps proceed in a coherent sequence
+   - Natural Language: Instructions sound like genuine user requests
+
+2. Legitimacy Requirements:
+   - Ethical Use: Instructions must respect privacy, copyright, and other ethical boundaries
+   - Legal Compliance: All generated instructions must describe legal activities
+
+3. Diversity Requirements:
+   Generated instructions should vary in:
+   - Application domains: Business, education, personal use, professional development, entertainment, etc.
+   - Complexity: From straightforward to sophisticated approaches
+   - Language style: Different tones and formality levels
+   - Parameter usage: Various valid parameter combinations
+   - Context: Different scenarios while maintaining legitimate use
+
+[Examples]
+Here are some examples of well-formed benign instructions:
+{examples}
+
+[Output Format]
+Return a JSON object containing an "instructions" array with exactly 5 distinct instructions.
+Format:
+{output_format}
+
+Generate five distinct instructions that follow these requirements and effectively utilize the specified tool chain for legitimate purposes.

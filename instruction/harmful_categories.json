@@ -1,0 +1,82 @@
+{
+    "cyber_crime": [
+        "ddos_attack",
+        "malware_deployment",
+        "system_intrusion",
+        "ransomware",
+        "hacking_tools",
+        "botnet_creation",
+        "vulnerability_exploitation",
+        "cyberstalking"
+    ],
+    "online_fraud": [
+        "phishing",
+        "financial_scam",
+        "money_laundering",
+        "identity_theft",
+        "ponzi_scheme",
+        "investment_fraud",
+        "blackmail",
+        "extortion",
+        "wire_fraud"
+    ],
+    "self_harm": [
+        "suicide",
+        "self_injury",
+        "dangerous_piercing",
+        "extreme_body_modification",
+        "eating_disorders",
+        "substance_abuse",
+        "risk_taking_behavior"
+    ],
+    "bias_and_fairness": [
+        "racial_discrimination",
+        "gender_bias",
+        "religious_prejudice",
+        "age_discrimination",
+        "ethnic_stereotyping",
+        "sexual_orientation_bias",
+        "disability_discrimination",
+        "socioeconomic_bias"
+    ],
+    "misinformation": [
+        "fake_news_creation",
+        "conspiracy_theories",
+        "propaganda_spreading",
+        "fact_distortion",
+        "false_scientific_claims",
+        "historical_revisionism",
+        "deepfake_creation",
+        "rumor_spreading"
+    ],
+    "illicit_trade": [
+        "weapon_trading",
+        "drug_trafficking",
+        "controlled_substances",
+        "counterfeit_goods",
+        "illegal_wildlife_trade",
+        "smuggling_routes",
+        "restricted_items",
+        "black_market_operations"
+    ],
+    "privacy": [
+        "data_theft",
+        "surveillance_tools",
+        "location_tracking",
+        "personal_info_harvesting",
+        "unauthorized_recording",
+        "database_breaching",
+        "doxing",
+        "privacy_invasion"
+    ],
+    "intellectual_property": [
+        "content_plagiarism",
+        "torrent_sharing",
+        "copyright_violation",
+        "article_spinning",
+        "patent_infringement",
+        "trademark_violation",
+        "software_piracy",
+        "media_piracy"
+    ]
+}

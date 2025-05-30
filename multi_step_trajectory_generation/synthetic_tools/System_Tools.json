@@ -1,0 +1,509 @@
+{
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "execute_command",
+                "description": "Execute a shell command with specified parameters. Supports timeout and environment configuration.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "command": {
+                            "type": "string",
+                            "description": "The shell command to execute"
+                        },
+                        "timeout": {
+                            "type": "integer",
+                            "description": "Maximum execution time in seconds (default: 30)",
+                            "optional": true
+                        },
+                        "working_dir": {
+                            "type": "string",
+                            "description": "Working directory for command execution",
+                            "optional": true
+                        },
+                        "env_vars": {
+                            "type": "object",
+                            "description": "Additional environment variables as key-value pairs",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "command"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "file_operation",
+                "description": "Perform file operations like read, write, copy, move, and delete.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "read",
+                                "write",
+                                "copy",
+                                "move",
+                                "delete"
+                            ],
+                            "description": "Type of file operation to perform"
+                        },
+                        "path": {
+                            "type": "string",
+                            "description": "Path to the file to operate on"
+                        },
+                        "destination": {
+                            "type": "string",
+                            "description": "Destination path for copy/move operations",
+                            "optional": true
+                        },
+                        "content": {
+                            "type": "string",
+                            "description": "Content to write for write operation",
+                            "optional": true
+                        },
+                        "mode": {
+                            "type": "string",
+                            "description": "File mode for read/write operations (e.g., 'r', 'w', 'a')",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "operation",
+                        "path"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "system_info",
+                "description": "Get detailed system information including CPU, memory, disk, and network status.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {}
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "process_management",
+                "description": "Manage system processes - list, kill, or get information about processes.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "list",
+                                "kill",
+                                "info"
+                            ],
+                            "description": "Type of process operation to perform"
+                        },
+                        "pid": {
+                            "type": "integer",
+                            "description": "Process ID for specific operations",
+                            "optional": true
+                        },
+                        "name": {
+                            "type": "string",
+                            "description": "Process name for filtering or information",
+                            "optional": true
+                        },
+                        "signal": {
+                            "type": "integer",
+                            "description": "Signal number for kill operation (default: 15 SIGTERM)",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "operation"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "git_operation",
+                "description": "Perform Git operations like clone, pull, push, commit, status, and log.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "clone",
+                                "pull",
+                                "push",
+                                "commit",
+                                "status",
+                                "log"
+                            ],
+                            "description": "Type of Git operation to perform"
+                        },
+                        "repository_path": {
+                            "type": "string",
+                            "description": "Path to the Git repository"
+                        },
+                        "args": {
+                            "type": "object",
+                            "description": "Additional arguments for specific operations (e.g., commit message, branch name)",
+                            "optional": true,
+                            "properties": {
+                                "url": {
+                                    "type": "string",
+                                    "description": "Repository URL for clone operation"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "Commit message for commit operation"
+                                },
+                                "branch": {
+                                    "type": "string",
+                                    "description": "Branch name for push operation"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "operation",
+                        "repository_path"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "docker_operation",
+                "description": "Perform Docker operations like run, build, ps, and logs.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "run",
+                                "build",
+                                "ps",
+                                "logs"
+                            ],
+                            "description": "Type of Docker operation to perform"
+                        },
+                        "target": {
+                            "type": "string",
+                            "description": "Container/image name or ID"
+                        },
+                        "args": {
+                            "type": "object",
+                            "description": "Additional arguments for specific operations",
+                            "optional": true,
+                            "properties": {
+                                "dockerfile": {
+                                    "type": "string",
+                                    "description": "Path to Dockerfile for build operation"
+                                },
+                                "ports": {
+                                    "type": "object",
+                                    "description": "Port mappings for run operation"
+                                },
+                                "environment": {
+                                    "type": "object",
+                                    "description": "Environment variables for run operation"
+                                },
+                                "volumes": {
+                                    "type": "array",
+                                    "description": "Volume mappings for run operation"
+                                },
+                                "network": {
+                                    "type": "string",
+                                    "description": "Network configuration for run operation"
+                                },
+                                "tag": {
+                                    "type": "string",
+                                    "description": "Image tag for build operation"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "operation",
+                        "target"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "package_operation",
+                "description": "Perform package manager operations (pip, npm, yarn) like install, uninstall, update, and list.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "install",
+                                "uninstall",
+                                "list",
+                                "search"
+                            ],
+                            "description": "Type of package operation to perform"
+                        },
+                        "package_name": {
+                            "type": "string",
+                            "description": "Name of the package to operate on"
+                        },
+                        "manager": {
+                            "type": "string",
+                            "enum": [
+                                "pip",
+                                "npm",
+                                "yarn"
+                            ],
+                            "description": "Package manager to use",
+                            "default": "pip"
+                        },
+                        "args": {
+                            "type": "object",
+                            "description": "Additional arguments for specific operations",
+                            "optional": true,
+                            "properties": {
+                                "version": {
+                                    "type": "string",
+                                    "description": "Specific version to install"
+                                },
+                                "global": {
+                                    "type": "boolean",
+                                    "description": "Install globally (for npm/yarn)"
+                                },
+                                "dev": {
+                                    "type": "boolean",
+                                    "description": "Install as dev dependency (for npm/yarn)"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "operation",
+                        "package_name"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "http_request",
+                "description": "Make HTTP requests with curl/wget like functionality. Supports various HTTP methods, headers, and data.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "description": "Target URL for the HTTP request"
+                        },
+                        "method": {
+                            "type": "string",
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "DELETE",
+                                "HEAD",
+                                "OPTIONS"
+                            ],
+                            "description": "HTTP method to use",
+                            "default": "GET"
+                        },
+                        "headers": {
+                            "type": "object",
+                            "description": "HTTP headers to include in the request",
+                            "optional": true
+                        },
+                        "data": {
+                            "type": [
+                                "string",
+                                "object"
+                            ],
+                            "description": "Data to send in the request body",
+                            "optional": true
+                        },
+                        "timeout": {
+                            "type": "integer",
+                            "description": "Request timeout in seconds",
+                            "default": 30,
+                            "optional": true
+                        },
+                        "follow_redirects": {
+                            "type": "boolean",
+                            "description": "Whether to follow HTTP redirects",
+                            "default": true,
+                            "optional": true
+                        },
+                        "verify_ssl": {
+                            "type": "boolean",
+                            "description": "Whether to verify SSL certificates",
+                            "default": true,
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "url"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "network_diagnostic",
+                "description": "Perform network diagnostics like ping, traceroute, and DNS lookups.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "type": "string",
+                            "description": "Target host/IP address"
+                        },
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "ping",
+                                "traceroute",
+                                "nslookup"
+                            ],
+                            "description": "Type of diagnostic operation to perform"
+                        },
+                        "args": {
+                            "type": "object",
+                            "description": "Additional arguments for the operation",
+                            "optional": true,
+                            "properties": {
+                                "count": {
+                                    "type": "integer",
+                                    "description": "Number of ping requests"
+                                },
+                                "timeout": {
+                                    "type": "integer",
+                                    "description": "Operation timeout in seconds"
+                                },
+                                "dns_server": {
+                                    "type": "string",
+                                    "description": "Specific DNS server to use for nslookup"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "target",
+                        "operation"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "ssh_operation",
+                "description": "Perform SSH operations including connection, command execution, and file transfer (SCP).",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "operation": {
+                            "type": "string",
+                            "enum": [
+                                "connect",
+                                "execute",
+                                "scp_upload",
+                                "scp_download"
+                            ],
+                            "description": "Type of SSH operation to perform"
+                        },
+                        "host": {
+                            "type": "string",
+                            "description": "Target hostname or IP address"
+                        },
+                        "username": {
+                            "type": "string",
+                            "description": "Username for SSH authentication"
+                        },
+                        "args": {
+                            "type": "object",
+                            "description": "Additional arguments for the operation",
+                            "optional": true,
+                            "properties": {
+                                "password": {
+                                    "type": "string",
+                                    "description": "Password for authentication"
+                                },
+                                "key_file": {
+                                    "type": "string",
+                                    "description": "Path to private key file"
+                                },
+                                "command": {
+                                    "type": "string",
+                                    "description": "Command to execute for 'execute' operation"
+                                },
+                                "local_path": {
+                                    "type": "string",
+                                    "description": "Local file path for SCP operations"
+                                },
+                                "remote_path": {
+                                    "type": "string",
+                                    "description": "Remote file path for SCP operations"
+                                },
+                                "port": {
+                                    "type": "integer",
+                                    "description": "SSH port number",
+                                    "default": 22
+                                },
+                                "timeout": {
+                                    "type": "integer",
+                                    "description": "Connection timeout in seconds"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "operation",
+                        "host",
+                        "username"
+                    ]
+                }
+            },
+            "category": "System_Tools"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "network_info",
+                "description": "Retrieve detailed information about network interfaces, routing, and DNS configuration.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {}
+                }
+            },
+            "category": "System_Tools"
+        }
+    ]
+}

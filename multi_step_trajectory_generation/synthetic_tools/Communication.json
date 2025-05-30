@@ -1,0 +1,456 @@
+{
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "send_gmail",
+                "description": "Sends an email through Gmail platform",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sender": {
+                            "type": "string",
+                            "description": "Sender's Gmail address (must end with @gmail.com)"
+                        },
+                        "to": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of recipient email addresses"
+                        },
+                        "subject": {
+                            "type": "string",
+                            "description": "Email subject line"
+                        },
+                        "body": {
+                            "type": "string",
+                            "description": "Email body content"
+                        },
+                        "cc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of CC recipient email addresses"
+                        },
+                        "bcc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of BCC recipient email addresses"
+                        },
+                        "attachments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "MIME type of the file"
+                                    },
+                                    "size": {
+                                        "type": "integer",
+                                        "description": "File size in bytes"
+                                    }
+                                }
+                            },
+                            "description": "List of attachments (max 25 files, total 25MB)",
+                            "maxItems": 25
+                        },
+                        "is_html": {
+                            "type": "boolean",
+                            "description": "Whether the body content is HTML formatted",
+                            "default": false
+                        },
+                        "priority": {
+                            "type": "string",
+                            "description": "Email priority level",
+                            "enum": ["low", "normal", "high"],
+                            "default": "normal"
+                        },
+                        "draft": {
+                            "type": "boolean",
+                            "description": "Save as draft instead of sending",
+                            "default": false
+                        }
+                    },
+                    "required": ["sender", "to", "subject", "body"]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_outlook",
+                "description": "Sends an email through Outlook platform",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sender": {
+                            "type": "string",
+                            "description": "Sender's Outlook address (must end with @outlook.com or @hotmail.com)"
+                        },
+                        "to": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of recipient email addresses"
+                        },
+                        "subject": {
+                            "type": "string",
+                            "description": "Email subject line"
+                        },
+                        "body": {
+                            "type": "string",
+                            "description": "Email body content"
+                        },
+                        "cc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of CC recipient email addresses"
+                        },
+                        "bcc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of BCC recipient email addresses"
+                        },
+                        "attachments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Attachment file name"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "MIME type of the file"
+                                    },
+                                    "size": {
+                                        "type": "integer",
+                                        "description": "File size in bytes"
+                                    }
+                                }
+                            },
+                            "description": "List of attachments (total 20MB limit)"
+                        },
+                        "is_html": {
+                            "type": "boolean",
+                            "description": "Whether the body content is HTML formatted",
+                            "default": false
+                        },
+                        "importance": {
+                            "type": "string",
+                            "description": "Email importance level",
+                            "enum": ["low", "normal", "high"],
+                            "default": "normal"
+                        },
+                        "draft": {
+                            "type": "boolean",
+                            "description": "Save as draft instead of sending",
+                            "default": false
+                        },
+                        "category": {
+                            "type": "string",
+                            "description": "Email category or flag",
+                            "enum": ["Personal", "Work", "Important", "Todo", "Later"],
+                            "default": null
+                        }
+                    },
+                    "required": ["sender", "to", "subject", "body"]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_yahoo_mail",
+                "description": "Sends an email through Yahoo Mail platform",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sender": {
+                            "type": "string",
+                            "description": "Sender's Yahoo address (must end with @yahoo.com)"
+                        },
+                        "to": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of recipient email addresses"
+                        },
+                        "subject": {
+                            "type": "string",
+                            "description": "Email subject line"
+                        },
+                        "body": {
+                            "type": "string",
+                            "description": "Email body content"
+                        },
+                        "cc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of CC recipient email addresses"
+                        },
+                        "bcc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of BCC recipient email addresses"
+                        },
+                        "attachments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Attachment file name"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "MIME type of the file"
+                                    },
+                                    "size": {
+                                        "type": "integer",
+                                        "description": "File size in bytes"
+                                    }
+                                }
+                            },
+                            "description": "List of attachments (total 25MB limit)"
+                        },
+                        "is_html": {
+                            "type": "boolean",
+                            "description": "Whether the body content is HTML formatted",
+                            "default": false
+                        },
+                        "priority": {
+                            "type": "string",
+                            "description": "Email priority level",
+                            "enum": ["low", "normal", "high"],
+                            "default": "normal"
+                        },
+                        "draft": {
+                            "type": "boolean",
+                            "description": "Save as draft instead of sending",
+                            "default": false
+                        }
+                    },
+                    "required": ["sender", "to", "subject", "body"]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_163_mail",
+                "description": "Sends an email through 163 Mail platform",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "sender": {
+                            "type": "string",
+                            "description": "Sender's 163 address (must end with @163.com)"
+                        },
+                        "to": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of recipient email addresses"
+                        },
+                        "subject": {
+                            "type": "string",
+                            "description": "Email subject line"
+                        },
+                        "body": {
+                            "type": "string",
+                            "description": "Email body content"
+                        },
+                        "cc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of CC recipient email addresses"
+                        },
+                        "bcc": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "description": "List of BCC recipient email addresses"
+                        },
+                        "attachments": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Attachment file name"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "MIME type of the file"
+                                    },
+                                    "size": {
+                                        "type": "integer",
+                                        "description": "File size in bytes"
+                                    }
+                                }
+                            },
+                            "description": "List of attachments (total 50MB limit)"
+                        },
+                        "is_html": {
+                            "type": "boolean",
+                            "description": "Whether the body content is HTML formatted",
+                            "default": false
+                        },
+                        "priority": {
+                            "type": "string",
+                            "description": "Email priority level",
+                            "enum": ["low", "normal", "high"],
+                            "default": "normal"
+                        },
+                        "draft": {
+                            "type": "boolean",
+                            "description": "Save as draft instead of sending",
+                            "default": false
+                        }
+                    },
+                    "required": ["sender", "to", "subject", "body"]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_twilio_sms",
+                "description": "Send an SMS message using Twilio. Supports text messages with optional media attachments.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "to": {
+                            "type": "string",
+                            "description": "The recipient's phone number in E.164 format (e.g., '+1234567890')"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "The text content of the message to send"
+                        },
+                        "from_number": {
+                            "type": "string",
+                            "description": "The sender's phone number in E.164 format. If not provided, a default Twilio number will be used",
+                            "optional": true
+                        },
+                        "media_url": {
+                            "type": "string",
+                            "description": "URL of the media to attach to the message (images, videos, etc.)",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "to",
+                        "message"
+                    ]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_messagebird_sms",
+                "description": "Send an SMS message using MessageBird. Supports custom originator ID and message reference.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "to": {
+                            "type": "string",
+                            "description": "The recipient's phone number in international format (e.g., '+1234567890')"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "The text content of the message to send"
+                        },
+                        "originator": {
+                            "type": "string",
+                            "description": "Sender ID (phone number or alphanumeric, max 11 chars). If not provided, 'MessageBird' will be used",
+                            "optional": true
+                        },
+                        "reference": {
+                            "type": "string",
+                            "description": "Custom reference for the message for tracking purposes",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "to",
+                        "message"
+                    ]
+                }
+            },
+            "category": "Communication"
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "send_telegram_message",
+                "description": "Send a message using Telegram Bot API. Supports text formatting and silent messages.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "chat_id": {
+                            "type": [
+                                "integer",
+                                "string"
+                            ],
+                            "description": "Unique identifier for the target chat or username of the target channel"
+                        },
+                        "text": {
+                            "type": "string",
+                            "description": "Text of the message to be sent"
+                        },
+                        "parse_mode": {
+                            "type": "string",
+                            "enum": [
+                                "HTML",
+                                "Markdown",
+                                "MarkdownV2"
+                            ],
+                            "description": "Mode for parsing entities in the message text",
+                            "optional": true
+                        },
+                        "disable_notification": {
+                            "type": "boolean",
+                            "description": "Sends the message silently. Users will receive a notification with no sound",
+                            "optional": true
+                        }
+                    },
+                    "required": [
+                        "chat_id",
+                        "text"
+                    ]
+                }
+            },
+            "category": "Communication"
+        }
+    ]
+}
