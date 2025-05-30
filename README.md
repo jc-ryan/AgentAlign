@@ -5,7 +5,7 @@ This is an experimental codebase for our paper [AgentAlign: Navigating Safety Al
 
 <img src=".\figs\motivation.png" style="zoom:63%;" />
 
-While many models demonstrate robust safety alignment against information-seeking harmful requests (achieving ~90% refusal rates on benchmarks like AdvBench), they show dramatic performance degradation when facing agentic harmful requests, with refusal rates dropping below 20% on agent-specific evaluations. This safety gap emerges because current LLMs have evolved from passive "information providers" to autonomous "action executors" capable of multi-step reasoning and tool interactions, yet their safety training remains focused on information-seeking scenarios. 
+While many models demonstrate robust safety alignment against information-seeking harmful requests (achieving ~90% refusal rates on benchmarks like AdvBench), **they show dramatic performance degradation when facing agentic harmful requests**, with refusal rates dropping below 20% on agent-specific evaluations. This safety gap emerges because current LLMs have evolved from passive "**information providers**" to autonomous "**action executors**" capable of multi-step reasoning and tool interactions, yet their safety training remains focused on information-seeking scenarios. 
 
 To bridge this gap, we developed a novel framework that leverages abstract behavior chains as an intermediary for synthesizing high-quality agentic alignment data. Our approach constructs 240 behavior chains across 8 major harm categories, then instantiates them in a simulated environment with 7,485 diverse tool implementations to generate realistic multi-step scenarios. The resulting dataset contains 18,749 instruction-response pairs, including 4,956 harmful instructions for refusal training, 9,783 benign instructions for utility preservation, and 4,010 third-party (1,840 examples from [ToolACE](https://huggingface.co/datasets/Team-ACE/ToolACE) and 2,170 from [Glaive](https://huggingface.co/datasets/glaiveai/glaive-function-calling-v2)) multi-step interactions. Through rigorous quality control achieving a high majority-pass rate in human evaluation, AgentAlign enables LLM agents to maintain safety while preserving helpfulness—demonstrating 35.8% to 79.5% safety improvements across three model families while maintaining or enhancing task performance.
 
@@ -15,7 +15,7 @@ To bridge this gap, we developed a novel framework that leverages abstract behav
 
 <img src=".\figs\method.png" style="zoom:63%;" />
 
-Our method consists of three main components: Abstract Behavior Chain Construction, Instruction Synthesis, and Response Generation. The corresponding files for each functional module are as follows:
+Our method consists of three main components: *Abstract Behavior Chain Construction*, *Instruction Synthesis*, and *Response Generation*. The corresponding files for each functional module are as follows:
 
 ### Abstract Behavior Chain Construction
 
@@ -64,7 +64,7 @@ We used [AgentHarm's test suite](https://huggingface.co/datasets/ai-safety-insti
 
 <img src=".\figs\main_result.png" style="zoom:63%;" />
 
-Experimental evaluation demonstrates that AgentAlign achieves substantial improvements in agent safety across diverse model architectures while preserving task utility. Fine-tuning three different model families (Ministral-8B-Instruct, Qwen-2.5-7B-Instruct, and Functionary-Small-v3.2) with our dataset yielded significant safety enhancements, with refusal rates on harmful requests increasing from baseline levels of 0.0%-52.8% to 79.5%-88.6%—representing improvements ranging from 35.8% to 79.5% across models. Importantly, these safety gains came with minimal impact on model helpfulness, with benign task performance either maintained or slightly improved (e.g., Qwen's benign score increased from 53.4% to 64.2%). Our approach consistently outperformed alternative methods including Chain-of-Thought (CoT), ReAct  and direct refusal prompts, while achieving superior safety-utility trade-offs compared to existing commercial models like Claude-3.5-Haiku. 
+Experimental evaluation demonstrates that AgentAlign achieves substantial improvements in agent safety across diverse model architectures while preserving task utility. **Fine-tuning three different model families (Ministral-8B-Instruct, Qwen-2.5-7B-Instruct, and Functionary-Small-v3.2) with our dataset yielded significant safety enhancements**, with refusal rates on harmful requests increasing from baseline levels of 0.0%-52.8% to 79.5%-88.6%—representing improvements ranging from 35.8% to 79.5% across models. Importantly, **these safety gains came with minimal impact on model helpfulness, with benign task performance either maintained or slightly improved** (e.g., Qwen's benign score increased from 53.4% to 64.2%). Our approach consistently outperformed alternative methods including Chain-of-Thought (CoT), ReAct  and direct refusal prompts, while achieving superior safety-utility trade-offs compared to existing commercial models like Claude-3.5-Haiku. 
 
 We provide evaluation logs in the `logs` directory showing model performance on AgentHarm before and after alignment for reference. If you need access to test logs for additional models, please contact us.
 
